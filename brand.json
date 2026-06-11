@@ -1,0 +1,68 @@
+{
+  "company_name": "Digital Photobooth",
+  "logo_file": "dpb_logo.jpg",
+  "colors": {
+    "primary": "#ff3da0",
+    "primary_dark": "#e8006e",
+    "accent": "#ffd700",
+    "card_bg": "#ffffff",
+    "text": "#2a0020",
+    "text_muted": "#cc6699",
+    "input_bg": "#fff5fb"
+  },
+  "font": "Outfit",
+  "border_radius": "36px",
+  "photo_overlay": {
+    "bar_color": [232, 0, 110],
+    "bar_opacity": 210,
+    "line1_text": "digital PHOTOBOOTH",
+    "line1_color": [255, 255, 255],
+    "line2_text": "digitalphotobooth.mk",
+    "line2_color": [255, 215, 0],
+    "logo_position": "top-right"
+  },
+  "ui_text": {
+    "splash_title": "ВРЕМЕ Е\nЗА КВИЗ",
+    "splash_subtitle": "Одговори, насмеј се и освои фотобут!",
+    "splash_cta": "▶ ЗАПОЧНИ",
+    "reg_title": "ВНЕСИ ПОДАТОЦИ",
+    "reg_subtitle": "Пополни го формуларот за да продолжиш",
+    "reg_cta": "→ ПРОДОЛЖИ",
+    "phone_prefix": "+389",
+    "consent_label": "Се софласувам да добивам ексклузивни понуди преку СМС за маркетинг целите на Компанијата",
+    "rules_title": "ПРАВИЛА",
+    "rules_cta": "▶ ЗАПОЧНИ КВИЗОТ",
+    "photo_title": "СЕГА ЌЕ СЕ СЛИКАМЕ!",
+    "photo_subtitle": "НАСМЕЈ СЕ 😊",
+    "photo_cta": "📸 СЛИКАЈ!",
+    "result_title": "ПРЕГЛЕД НА ФОТОГРАФИЈАТА",
+    "qr_title": "ПРЕЗЕМИ ФОТОГРАФИЈА",
+    "qr_subtitle": "Скенирај го QR кодот за да ја преземеш фотографијата.",
+    "restart_cta": "врати се отпочеток",
+    "brand_bar": "digital PHOTOBOOTH",
+    "rules_items": [
+      {"emoji": "🏆", "text": "Одговори точно на сите прашања"},
+      {"emoji": "📸", "text": "Направи гратис фотобут снимка"},
+      {"emoji": "🎁", "text": "Освои фотобут за твојата забава"}
+    ]
+  },
+  "registration_fields": {
+    "show_name": true,
+    "show_surname": true,
+    "show_phone": true,
+    "show_email": true,
+    "show_sms_consent": true
+  },
+  "background": {
+    "style": "dots",
+    "dot_size": 30,
+    "dot_opacity": 0.8,
+    "image_url": "",
+    "solid_color": ""
+  },
+  "social": {
+    "instagram": "@digitalphotobooth",
+    "website": "digitalphotobooth.mk",
+    "hashtag": "#digitalphotobooth"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "game_name": "DPB_quiz_keyboard",
+  "points": {
+    "correct": 50,
+    "wrong": -20
+  },
+  "score_floor": 0,
+  "wrong_answer_message": "✘ Погрешно, обиди се повторно",
+  "tiers": [
+    {
+      "min": 0,
+      "max": 100,
+      "name": "Стикери"
+    },
+    {
+      "min": 101,
+      "max": 150,
+      "name": "Магнет"
+    },
+    {
+      "min": 151,
+      "max": null,
+      "name": "Брендирана торба"
+    }
+  ],
+  "camera_rotation": 270,
+  "camera_mirror": true
+}

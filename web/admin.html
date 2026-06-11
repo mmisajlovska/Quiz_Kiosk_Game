@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="mk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Admin Panel - Digital PhotoBooth</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="virtual-keyboard.css">
+</head>
+
+<body>
+    <div id="bg-pattern"></div>
+
+    <main id="admin-container">
+        <!-- Admin Panel Header -->
+        <div class="admin-panel-container">
+            <div class="admin-header">
+                <h2>АДМИН ПАНЕЛ</h2>
+                <button id="admin-back" class="admin-close" title="Назад">← НАЗАД</button>
+            </div>
+
+            <!-- Admin Tabs -->
+            <div class="admin-tabs">
+                <button class="admin-tab active" data-tab="questions">Прашања</button>
+                <button class="admin-tab" data-tab="camera">Камера</button>
+                <button class="admin-tab" data-tab="rules">Правила</button>
+                <button class="admin-tab" data-tab="export">Зачувај</button>
+            </div>
+
+            <!-- Admin Content -->
+            <div class="admin-content">
+                <!-- Questions Tab -->
+                <div class="admin-tab-content active" id="tab-questions">
+                    <div class="admin-section">
+                        <h3>Прашања</h3>
+                        <div id="questions-list" class="questions-list"></div>
+                        <button id="add-question-btn" class="btn-primary" style="margin-top: 1rem;">+ Додај Прашање</button>
+                    </div>
+                </div>
+
+                <!-- Camera Tab -->
+                <div class="admin-tab-content" id="tab-camera">
+                    <div class="admin-section">
+                        <h3>Ротација на Камера</h3>
+                        <div class="camera-preview-container">
+                            <video id="admin-camera-preview" class="admin-camera-preview" autoplay playsinline muted></video>
+                            <div id="admin-camera-error" class="camera-error-message" style="display: none;">
+                                Камерата није достапна. Проверете дозволи на вашиот браузер.
+                            </div>
+                        </div>
+                        <div class="camera-rotation-controls">
+                            <button class="rotation-btn" data-angle="0">⟲ 0°</button>
+                            <button class="rotation-btn" data-angle="90">↻ 90°</button>
+                            <button class="rotation-btn" data-angle="180">↻ 180°</button>
+                            <button class="rotation-btn" data-angle="270">↺ 270°</button>
+                        </div>
+                        <button id="flip-btn" class="flip-btn">🔄 Флип</button>
+                        <div class="camera-current-rotation">
+                            Тренутна ротација: <span id="current-rotation-display">0</span>°
+                        </div>
+                        <button id="save-camera-settings-btn" class="btn-primary" style="margin-top: 1rem; background-color: var(--c-success); width: 100%;">💾 Зачувај Ротација</button>
+                    </div>
+                </div>
+
+                <!-- Rules Tab -->
+                <div class="admin-tab-content" id="tab-rules">
+                    <div class="admin-section">
+                        <h3>Поени и Награди</h3>
+                        <div class="form-group">
+                            <label>Поени за точен одговор:</label>
+                            <input type="number" id="points-correct" class="admin-input">
+                        </div>
+                        <div class="form-group">
+                            <label>Поени за грешен одговор:</label>
+                            <input type="number" id="points-wrong" class="admin-input">
+                        </div>
+                        <div class="form-group">
+                            <label>Минимум поени:</label>
+                            <input type="number" id="score-floor" class="admin-input">
+                        </div>
+                        <div class="form-group">
+                            <label>Порака за грешен одговор:</label>
+                            <textarea id="wrong-message" class="admin-input" rows="2"></textarea>
+                        </div>
+                        <h3 style="margin-top: 1.5rem;">Наградни Нивоа</h3>
+                        <div id="tiers-list" class="tiers-list"></div>
+                        <button id="add-tier-btn" class="btn-primary" style="margin-top: 1rem;">+ Додај Ниво</button>
+                        <button id="save-rules-btn" class="btn-primary" style="margin-top: 1rem; background-color: var(--c-success);">💾 Зачувај Правила</button>
+                    </div>
+                </div>
+
+                <!-- Export Tab -->
+                <div class="admin-tab-content" id="tab-export">
+                    <div class="admin-section">
+                        <h3>Зачувај Податоци</h3>
+                        <p style="margin-bottom: 1rem; color: #666;">Кликни го копчето за да ги зачуваш сите учесници во Excel формат на Desktop.</p>
+                        <button id="export-btn" class="btn-primary" style="background-color: var(--c-success); width: 100%;">📥 Зачувај во Excel</button>
+                        <p id="export-status" style="margin-top: 1rem; text-align: center; color: #666;"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="admin.js"></script>
+    <script src="virtual-keyboard.js"></script>
+</body>
+
+</html>

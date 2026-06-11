@@ -1,0 +1,223 @@
+/* Virtual Keyboard Styles */
+
+.hg-row:not(:last-child) {
+    margin-bottom: 0.35rem;
+}
+
+.hg-row:last-child {
+    margin-bottom: 0;
+}
+
+.hg-button {
+    height: 3.35rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--c-input-bg, #f0f0f0);
+    border: 2px solid var(--c-muted, #ccc);
+    border-radius: 8px;
+    font-size: 0.98rem;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.15s ease;
+    font-family: var(--font-main, 'Outfit', sans-serif);
+    color: var(--c-text, #333);
+    flex: 1;
+    margin: 0 0.28rem;
+    min-width: 2rem;
+    padding: 0.5rem;
+    box-sizing: border-box;
+}
+
+.hg-button:active {
+    background: var(--c-accent, #ff6b6b);
+    border-color: var(--c-accent, #ff6b6b);
+    color: #fff;
+    transform: scale(0.95);
+}
+
+.hg-button:hover {
+    background: var(--c-card, #f9f9f9);
+    border-color: var(--c-accent, #ff6b6b);
+}
+
+.hg-button.hg-standardBtn {
+    flex: 1;
+}
+
+.hg-button.hg-functionBtn {
+    background: var(--c-accent, #ff6b6b);
+    color: #fff;
+    border-color: var(--c-accent, #ff6b6b);
+    font-weight: 700;
+}
+
+.hg-button.hg-functionBtn:active {
+    background: var(--c-bg2, #d73f3f);
+    border-color: var(--c-bg2, #d73f3f);
+}
+
+.hg-row.hg-row:first-child {
+    margin-top: 0;
+}
+
+.hg-keyboard {
+    width: 100%;
+    padding: 0.55rem;
+    background: var(--c-card, #fff);
+    border-top: 2px solid var(--c-muted, #ddd);
+    border-radius: 8px 8px 0 0;
+    box-sizing: border-box;
+}
+
+.hg-row {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+}
+
+/* Keyboard view toggle button */
+.hg-button[data-skbtn="symbols"],
+.hg-button[data-skbtn="letters"],
+.hg-button.keyboard-mode-toggle {
+    background: var(--c-bg, #007acc);
+    color: #fff;
+    border-color: var(--c-bg, #007acc);
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.hg-button.keyboard-mode-toggle:active,
+.hg-button[data-skbtn="symbols"]:active,
+.hg-button[data-skbtn="letters"]:active {
+    background: var(--c-bg2, #005a9c);
+    border-color: var(--c-bg2, #005a9c);
+}
+
+/* Shift and backspace buttons */
+.hg-button[data-skbtn="shift"],
+.hg-button[data-skbtn="backspace"],
+.hg-button[data-skbtn="tab"],
+.hg-button[data-skbtn="lock"],
+.hg-button[data-skbtn="enter"],
+.hg-button[data-skbtn="space"],
+.hg-button[data-skbtn=":"],
+.hg-button[data-skbtn="clear"] {
+    background: var(--c-accent, #ff6b6b);
+    color: #fff;
+    border-color: var(--c-accent, #ff6b6b);
+    font-weight: 700;
+}
+
+.hg-button[data-skbtn="backspace"]:active,
+.hg-button[data-skbtn="shift"]:active,
+.hg-button[data-skbtn="tab"]:active,
+.hg-button[data-skbtn="lock"]:active,
+.hg-button[data-skbtn="enter"]:active,
+.hg-button[data-skbtn="space"]:active,
+.hg-button[data-skbtn=":"]:active,
+.hg-button[data-skbtn="clear"]:active {
+    background: var(--c-bg2, #d73f3f);
+    border-color: var(--c-bg2, #d73f3f);
+}
+
+/* Shift active state */
+.hg-button.hg-button:active[data-skbtn="shift"] {
+    background: var(--c-bg, #007acc);
+    border-color: var(--c-bg, #007acc);
+}
+
+.hg-button.hg-button[data-skbtn="shift"].active {
+    background: var(--c-bg, #007acc);
+    border-color: var(--c-bg, #007acc);
+}
+
+/* Space bar and special keys */
+.hg-button[data-skbtn="space"] {
+    flex: 3;
+}
+
+.hg-button.hg-row:nth-child(1) {
+    flex-basis: 8%;
+}
+
+.hg-button.hg-row:nth-child(2) {
+    flex-basis: 8%;
+}
+
+.hg-button.hg-row:nth-child(3) {
+    flex-basis: 8%;
+}
+
+.hg-button.hg-row:nth-child(4) {
+    flex-basis: 8%;
+}
+
+.hg-button.hg-row:nth-child(5) {
+    flex-basis: 8%;
+}
+
+/* Keyboard container overlay */
+.keyboard-overlay {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10000;
+    background: var(--c-card, #fff);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+    max-height: 50vh;
+    overflow-y: auto;
+}
+
+/* Numeric keyboard variant */
+.hg-keyboard.numeric {
+    max-width: 100%;
+}
+
+/* Language indicator */
+.keyboard-lang-indicator {
+    display: inline-block;
+    font-size: 0.7rem;
+    padding: 0.18rem 0.45rem;
+    background: var(--c-bg, #007acc);
+    color: #fff;
+    border-radius: 4px;
+    margin-right: 0.5rem;
+    font-weight: 700;
+}
+
+/* Focus state for better touchscreen experience */
+.hg-button:focus {
+    outline: 2px solid var(--c-accent, #ff6b6b);
+    outline-offset: 2px;
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+    .hg-button {
+        height: 3.75rem;
+        font-size: 1.05rem;
+    }
+
+    .hg-button:hover {
+        background: var(--c-input-bg, #f0f0f0);
+        border-color: var(--c-muted, #ccc);
+    }
+}
+
+/* Landscape orientation */
+@media (max-height: 500px) {
+    .hg-button {
+        height: 2.7rem;
+        font-size: 0.84rem;
+        margin: 0 0.22rem;
+    }
+
+    .hg-keyboard {
+        padding: 0.4rem;
+        max-height: 35vh;
+    }
+}

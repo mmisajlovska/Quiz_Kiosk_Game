@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="mk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Digital PhotoBooth</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="virtual-keyboard.css">
+</head>
+
+<body>
+    <div id="bg-pattern"></div>
+    <!-- <div class="brand-bar" id="ui-brand-bar">digital PHOTOBOOTH</div> -->
+
+    <main id="app-container">
+        <!-- 1: SPLASH -->
+        <section id="scr-splash" class="screen active">
+            <div class="screen-logo-wrap">
+                <img class="screen-logo" id="brand-logo-1" src="/assets/dpb_logo.jpg" alt="digital PhotoBooth logo">
+            </div>
+
+            <div class="card hero-card shadow">
+                <div class="tape top-tape"></div>
+                <h1 id="ui-splash-title">ВРЕМЕ Е<br>ЗА КВИЗ</h1>
+                <div class="tape bottom-tape"></div>
+            </div>
+            <p class="subtitle" id="ui-splash-subtitle">Одговори, насмеј се и освои фотобут!</p>
+            <div class="action-bar">
+                <button id="ui-splash-cta" onclick="nav('scr-reg')" class="btn-primary">▶ ЗАПОЧНИ</button>
+            </div>
+
+            <p class="subtitle" id="ui-splash-subtitle-2">digitalphotobooth.mk</p>
+
+            <!-- Invisible Admin Button -->
+            <div id="admin-btn-splash" class="admin-btn" title="Admin Panel"></div>
+
+        </section>
+
+        <!-- 2: REGISTRATION -->
+        <section id="scr-reg" class="screen">
+            <div class="screen-logo-wrap">
+                <img class="screen-logo" id="brand-logo-2" src="/assets/dpb_logo.jpg" alt="digital PhotoBooth logo">
+            </div>
+            <h2 class="section-title" id="ui-reg-title">ВНЕСИ ПОДАТОЦИ</h2>
+            <p class="subtitle" id="ui-reg-subtitle">Пополни го формуларот за да продолжиш</p>
+
+            <div class="card form-card shadow">
+                <div class="input-group" id="grp-name">
+                    <label>ИМЕ</label>
+                    <input type="text" id="inp-name" placeholder="Име"
+                        oninput="this.value=this.value.replace(/[^A-Za-zА-Ша-ш]/g,'')" autocomplete="off">
+                </div>
+                <div class="input-group" id="grp-sur">
+                    <label>ПРЕЗИМЕ</label>
+                    <input type="text" id="inp-sur" placeholder="Презиме"
+                        oninput="this.value=this.value.replace(/[^A-Za-zА-Ша-ш]/g,'')" autocomplete="off">
+                </div>
+                <div class="input-group" id="grp-email" style="display:none;">
+                    <label>Е-ПОШТА</label>
+                    <input type="text" id="inp-email" placeholder="E-mail" autocomplete="off">
+                </div>
+                <div class="input-group" id="grp-phone">
+                    <label>ТЕЛЕФОН</label>
+                    <div class="phone-wrap">
+                        <span class="prefix" id="ui-phone-prefix">+389</span>
+                        <input type="tel" id="inp-phone" placeholder="7X XXX XXX"
+                            oninput="this.value=this.value.replace(/[^0-9]/g,'')" autocomplete="off" maxlength="9">
+                    </div>
+                </div>
+
+                <p class="consent-lbl" id="ui-consent-label">Се софласувам да добивам ексклузивни понуди преку СМС за маркетинг целите на Компанијата</p>
+                <div class="consent-tiles">
+                    <div class="tile active" id="tile-agree" onclick="setConsent(true)">
+                        <span class="icon">✔</span><br>Се<br>согласувам
+                    </div>
+                    <div class="tile" id="tile-disagree" onclick="setConsent(false)">
+                        <span class="icon">✘</span><br>Не се<br>согласувам
+                    </div>
+                </div>
+                <p id="reg-err" class="err-msg"></p>
+
+                <div class="action-bar form-action-bar">
+                    <button id="ui-reg-cta" onclick="submitReg()" class="btn-primary">→ ПРОДОЛЖИ</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3: RULES -->
+        <section id="scr-rules" class="screen">
+            <h2 class="section-title" id="ui-rules-title">ПРАВИЛА</h2>
+            <div class="card rules-card shadow" id="rules-container">
+            </div>
+            <div class="action-bar">
+                <button id="ui-rules-cta" onclick="startQuiz()" class="btn-primary">▶ ЗАПОЧНИ КВИЗОТ</button>
+            </div>
+            <div class="screen-logo-wrap">
+                <img class="screen-logo" id="brand-logo-rules" src="/assets/dpb_logo.jpg" alt="digital PhotoBooth logo">
+            </div>
+        </section>
+
+        <!-- 4: QUIZ -->
+        <section id="scr-quiz" class="screen">
+            <div class="brand-bar" id="ui-brand-bar">digital PHOTOBOOTH</div>
+            <div class="progress-bar-w">
+                <div class="progress-fill" id="q-prog"></div>
+            </div>
+            <div class="quiz-meta">
+                <p class="q-indicator" id="q-ind">Прашање 1 / 3</p>
+                <p class="score-pill" id="q-score">Поени: 0</p>
+            </div>
+
+            <div class="card q-card shadow">
+                <div class="tape top-tape"></div>
+                <h3 id="q-text">Прашањето се вчитува...</h3>
+            </div>
+
+            <div id="q-options" class="options-container"></div>
+
+            <p id="q-feedback" class="feedback-msg"></p>
+        </section>
+
+        <!-- 5: PHOTOBOOTH -->
+        <section id="scr-photo" class="screen">
+            <div class="screen-logo-wrap">
+                <img class="screen-logo" id="brand-logo-photo" src="/assets/dpb_logo.jpg" alt="digital PhotoBooth logo">
+            </div>
+            <h2 class="section-title text-shadow" id="ui-photo-title">СЕГА ЌЕ СЕ СЛИКАМЕ!</h2>
+            <p class="subtitle text-gold text-shadow" id="ui-photo-subtitle">НАСМЕЈ СЕ 😊</p>
+
+            <div class="vid-container shadow">
+                <video id="vid-feed" autoplay playsinline muted></video>
+                <div id="cam-overlay" class="cam-overlay"><span id="cam-countdown"></span></div>
+            </div>
+
+            <div class="action-bar alt-bar">
+                <button id="btn-snap" onclick="startSnap()" class="btn-snap"><span id="ui-photo-cta">📸
+                        СЛИКАЈ!</span></button>
+            </div>
+        </section>
+
+        <!-- 6: RESULT -->
+        <section id="scr-result" class="screen">
+            <h2 class="section-title" id="ui-result-title">ПРЕГЛЕД НА ФОТОГРАФИЈАТА</h2>
+            <p class="subtitle" id="res-status">Се генерира сликата...</p>
+
+            <div class="res-layout">
+                <div id="res-loader" class="res-loader" aria-hidden="true">
+                    <div class="res-loader-spinner"></div>
+                    <p class="res-loader-text">Се подготвува фотографијата...</p>
+                </div>
+                <img id="res-img" class="res-thumb shadow">
+            </div>
+
+            <div class="action-bar result-action-bar">
+                <button id="btn-retry" onclick="retryPhoto()" class="btn-secondary">↻ ПОВТОРНО СЛИКАЈ</button>
+                <button id="btn-open-qr" onclick="openQrPage()" class="btn-primary" disabled>ПРЕВЗЕМИ ЈА
+                    СЛИКАТА</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Hidden canvas for capturing -->
+    <canvas id="canvas-capture" style="display:none;" width="720" height="1280"></canvas>
+
+    <script src="app.js"></script>
+    <script src="virtual-keyboard.js"></script>
+</body>
+
+</html>

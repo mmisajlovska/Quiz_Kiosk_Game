@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="mk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Digital PhotoBooth - QR</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="qr-page">
+    <div id="bg-pattern"></div>
+    <!-- <div class="brand-bar" id="ui-brand-bar">digital PHOTOBOOTH</div> -->
+
+
+    <main id="qr-container">
+        <section class="qr-screen">
+
+            <div class="screen-logo-wrap">
+                <img class="screen-logo" id="brand-logo-1" src="/assets/dpb_logo.jpg" alt="digital PhotoBooth logo">
+            </div>
+            <h2 class="section-title" id="ui-qr-title">ПРЕЗЕМИ ФОТОГРАФИЈА</h2>
+            <p id="qr-prize-msg" class="qr-prize-msg" hidden></p>
+            <div class="qr-only-wrap">
+                <img id="qr-img" class="res-qr shadow" hidden alt="QR код за преземање на фотографијата">
+                <p id="qr-status" class="subtitle"><span id="ui-qr-subtitle">Скенирај го QR кодот за да ја преземеш
+                        фотографијата.</span></p>
+            </div>
+
+            <div class="action-bar result-action-bar">
+                <button id="btn-restart" class="btn-secondary" onclick="restartFromQr()"><span id="ui-restart-cta">врати
+                        се отпочеток</span></button>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="qr.js"></script>
+</body>
+
+</html>
