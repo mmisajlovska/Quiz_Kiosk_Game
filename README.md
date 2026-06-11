@@ -3,6 +3,8 @@
 Interactive kiosk app built with Flask + vanilla JS.
 Users register, play a quiz, take a branded photo, and download it through a QR code linked to Google Drive.
 
+![Photobooth Kiosk Flow](assets/screenshot_placeholder.png)
+
 ## What the app does
 
 - Shows a multi-screen kiosk flow in one web app.
@@ -225,7 +227,7 @@ Exports leads to Excel format (.xlsx) on the Desktop with columns: ID, Name, Sur
   - Check terminal logs for "Drive upload / QR generation failed".
 
 - OAuth sign-in fails
-  - Verify `credentials.json` is valid for this app.
+  - Verify `credentials.json` is valid for this app. // `example_credentials.json` is provided as an example, the real name should be `credentials.json`.
   - Remove `drive_token.json` and retry login.
 
 - App starts but exits with error
